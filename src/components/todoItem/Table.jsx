@@ -2,7 +2,6 @@ import React from "react"
 import "./Table.css"
 
 const Table = ({list}) => {
-  console.log(list)
     return (
     <center>      
         <table>
@@ -16,7 +15,7 @@ const Table = ({list}) => {
 
             {list.length > 0 && (
                 list.map(item => (
-                    <tr>
+                    <tr key={item.id}>
                         <td >{item.id ?? '---'}</td>
                         <td >{item.coefficient_crop ?? '---'}</td>
                         <td >{item.name_en ?? '---'}</td>
