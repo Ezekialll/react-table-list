@@ -120,35 +120,36 @@ const Stats = () => {
       </form>
 
       <table className="table">
-        <thead>
-          <tr className="tableHeader">
-            {tableHeaders[selectedLanguage].map((header, index) => (
-              <th key={index} className="tableCell">
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {filteredData
-            .filter(
-              (item) =>
-                selectedCropValue === "" ||
-                item[`culture_name_${selectedLanguage}`] === selectedCropValue
-            )
-            .map((item, index) => (
-              <tr key={index}>
-                <td className="tableCell">
-                  {item[`culture_name_${selectedLanguage}`]}
-                </td>
-                <td className="tableCell">
-                  {item[`territory_${selectedLanguage}`]}
-                </td>
-                <td className="tableCell">{item.area_ha}</td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+  <thead>
+    <tr className="tableHeader">
+      {tableHeaders[selectedLanguage].map((header, index) => (
+        <th key={index} className="tableCell">
+          {header}
+        </th>
+      ))}
+    </tr>
+  </thead>
+  <tbody>
+    {filteredData
+      .filter(
+        (item) =>
+          selectedCropValue === "" || item[`culture_name_${selectedLanguage}`] === selectedCropValue
+      )
+      .map((item, index) => (
+        <tr key={index}>
+          <td className="tableCell">
+            {item[`culture_name_${selectedLanguage}`]}
+          </td>
+          <td className="tableCell">
+            {item[`territory_${selectedLanguage}`]}
+          </td>
+          <td className="tableCell">{item.area_ha}</td>
+        </tr>
+      ))}
+  </tbody>
+</table>
+
+
     </div>
   );
 };

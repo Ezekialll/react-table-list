@@ -6,23 +6,25 @@ const Table = ({list, currLang}) => {
     return (
     <center>      
         <table>
-            <tr >
-                <th>{translations['identificator_' + currLang]}</th>
-                <th>{translations['coefficent_' + currLang]}</th>
-                <th>{translations['name_' + currLang]}</th>
+  <tbody>
+    <tr>
+      <th>{translations['identificator_' + currLang]}</th>
+      <th>{translations['coefficent_' + currLang]}</th>
+      <th>{translations['name_' + currLang]}</th>
+    </tr>
 
-            </tr>
+    {list.length > 0 && (
+      list.map(item => (
+        <tr key={item.id}>
+          <td>{item.id ?? '---'}</td>
+          <td>{item.coefficient_crop ?? '---'}</td>
+          <td>{item['name_' + currLang] ?? '---'}</td>
+        </tr>
+      ))
+    )}
+  </tbody>
+</table>
 
-            {list.length > 0 && (
-                list.map(item => (
-                    <tr key={item.id}>
-                        <td >{item.id ?? '---'}</td>
-                        <td >{item.coefficient_crop ?? '---'}</td>
-                        <td >{item['name_' + currLang]?? '---'}</td>
-                    </tr>
-                ))
-            )}
-        </table>
     </center>
 
     
