@@ -1,16 +1,16 @@
 import React from "react" 
-import "./Table.css"
+import './Table.css'
+import { translations } from "../../translations";
 
-const Table = ({list}) => {
+const Table = ({list, currLang}) => {
     return (
     <center>      
         <table>
             <tr >
-                <th>Идентификатор</th>
-                <th>Коэффицент</th>
-                <th>Name</th>
-                <th>Название</th>
-                <th>Аты</th>
+                <th>{translations['identificator_' + currLang]}</th>
+                <th>{translations['coefficent_' + currLang]}</th>
+                <th>{translations['name_' + currLang]}</th>
+
             </tr>
 
             {list.length > 0 && (
@@ -18,15 +18,17 @@ const Table = ({list}) => {
                     <tr key={item.id}>
                         <td >{item.id ?? '---'}</td>
                         <td >{item.coefficient_crop ?? '---'}</td>
-                        <td >{item.name_en ?? '---'}</td>
-                        <td >{item.name_ru ?? '---'}</td>
-                        <td >{item.name_ky ?? '---'}</td>
+                        <td >{item['name_' + currLang]?? '---'}</td>
                     </tr>
                 ))
             )}
         </table>
     </center>
+
+    
   );
+
+  
 }
 
 export default Table;
