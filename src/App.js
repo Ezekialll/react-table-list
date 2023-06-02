@@ -4,14 +4,11 @@ import Dropdown from "./components/Dropdown/Dropdown";
 import Map from "./components/Map/Map";
 import Stats from "./components/cultureStats/cultureStats";
 
-
-
 const App = () => {
   const [cultureList, setCultureList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currLang, setCurrLang] = useState("ru");
   const [regions, setRegions] = useState([]);
-  
 
   const fetchUserData = () => {
     setLoading(true);
@@ -36,7 +33,6 @@ const App = () => {
   useEffect(() => {
     fetchUserData();
     fetchRegions();
-
   }, []);
 
   if (loading) return "loading...";

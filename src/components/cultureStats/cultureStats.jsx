@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./CultureStatscss.css";
+import "./CultureStats.css";
 
 const Stats = () => {
   const [selectedCropValue, setSelectedCropValue] = useState("");
@@ -45,7 +45,6 @@ const Stats = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setFilteredData(data);
       })
       .catch((error) => {
